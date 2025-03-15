@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Starknet Basecamp XI",
-  description: "Counter App",
+  title: "Skillnet Learning hub",
+  description: "Learning Hub",
 };
 
 export default function RootLayout({
