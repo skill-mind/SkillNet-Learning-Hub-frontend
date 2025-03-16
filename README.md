@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillNet: Empowering Learning Through Blockchain Technology
+
+SkillNet is an innovative platform designed to enhance the learning experience by connecting students with expert tutors. By leveraging blockchain technology, SkillNet ensures the credibility of certifications and provides a seamless learning environment.
+
+## Key Features
+
+### For Students
+
+- **Verified Learning:** Earn blockchain-authenticated certificates upon course completion.
+- **Personalized Dashboard:** Track your progress, certifications, and enrolled courses.
+- **Skill Development:** Access a variety of courses tailored to industry needs.
+
+### For Tutors
+
+- **Monetize Expertise:** Create and sell educational content to a global audience.
+- **Secure Certifications:** Issue tamper-proof certificates for students upon completion.
+- **Effortless Course Management:** Easily manage student enrollments, course materials, and certificates.
+
+## Why Blockchain?
+
+SkillNet leverages StarkNet blockchain technology to:
+
+- **Protect User Data:** Securely store personal and educational records.
+- **Ensure Transparency:** Provide permanent and verifiable records of achievements.
+- **Decentralized Learning:** Empower students and tutors with full control over their educational journey.
+
+## User-Friendly Dashboards
+
+SkillNet offers dedicated dashboards for:
+
+- **Students:** Track course progress, view certificates, and manage learning goals.
+- **Tutors:** Create, manage, and deliver courses while issuing verified certificates.
+
+## Technologies Behind SkillNet
+
+- **Frontend:** Next.js (for an interactive UI)
+- **Backend:** Node.js (for server-side operations)
+- **Blockchain:** StarkNet (for decentralized data integrity)
+- **Database:** MongoDB (for secure data storage)
+
+
 
 ## Getting Started
 
-First, run the development server:
+To set up SkillNet on your local machine:
+
+- **1. Clone the repository:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ git clone https://github.com/skill-mind/SkillNet-Learning-Hub-frontend.git_
+
+ cd skillnet_
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **2. Install dependencies:**
+```bash
+npm install
+```
+- **3. Start the development server:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  _npm run dev_
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing to SkillNet
 
-## Learn More
+We welcome contributions! To participate:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Fork the repository**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Create a new branch**
+   _git checkout -b feature/Issue title_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Commit your changes:**
+   _Type *"Add the title as the commit message"* when prompted during your commit stage using git._
 
-## Deploy on Vercel
+4. **Push to your branch:**
+   _git push origin feature/Issue title_
+5. **Create a pull request**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Connect with Us
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Stay updated on SkillNet developments through our community channels:
+
+[Telegram](https://t.me/+wkTCPZzVyGU5ZDFk%22)
+
+[Twitter(X)](https://x.com/projectSkillNet)
+
+We invite you to join our effort in transforming the way skills meet jobs alongside learning possibilities.
