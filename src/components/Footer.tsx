@@ -42,7 +42,7 @@ export default function Footer() {
           className="w-full flex flex-col sm:flex-row justify-between gap-8 sm:gap-0
                       pt-6 sm:pt-8 lg:pt-[56px] px-4 sm:px-6 pb-6"
         >
-          <h5 className="text-lg sm:text-xl lg:text-[20px] leading-6 text-center sm:text-left">
+          <h5 className="text-lg sm:text-xl lg:text-[20px] leading-6 text-center sm:text-left text-white">
             SKILLNET
           </h5>
 
@@ -87,7 +87,7 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
-          <p className="text-sm leading-4 text-center sm:text-right">
+          <p className="text-sm leading-4 text-center sm:text-right text-white">
             &copy; Copyright SkillNet {currentYear}
           </p>
         </div>
