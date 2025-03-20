@@ -1,4 +1,4 @@
-import questionIcon from "../../../../../../public/questionsimage.svg";
+  import questionIcon from "../../../../../../public/questionsimage.svg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ const Questions = () => {
           <div className="flex items-start sm:items-center justify-start gap-3 sm:gap-[31px]">
             <div className="w-9 h-9 sm:w-[41px] sm:h-[41px] rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
               <Image
-                src={questionsNotification.image}
+                src={questionIcon}
                 alt="questions"
                 height={100}
                 width={100}

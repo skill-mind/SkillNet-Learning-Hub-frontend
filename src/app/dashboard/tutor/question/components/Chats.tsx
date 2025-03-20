@@ -34,6 +34,9 @@ const Chats: React.FC<ChatsProps> = ({ onChatSelect }) => {
         <button className="h-[31px] w-[74px] border-[1px] border-solid border-[#3b3b3a] text-sm md:text-[16px] font-medium text-[#A8C789] rounded-[4px]">
           New
         </button>
+        <button className="h-[31px] w-[74px] border-solid border-[#3b3b3a] text-sm md:text-[16px] font-medium text-gray-400 rounded-[4px]">
+          Archived
+        </button>
       </div>
 
       <ul className="flex flex-col gap-3 md:gap-4 overflow-y-auto">
