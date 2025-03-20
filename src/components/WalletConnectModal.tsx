@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/ui/button";
 import Image from "next/image";
 import { useWalletContext } from "../useContext/WalletContext";
 import ArgentImg from "../../public/svg/ArgentImg.svg";
