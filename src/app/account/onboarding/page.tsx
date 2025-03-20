@@ -6,7 +6,7 @@ import selectImgBg from "../../../../public/svg/selecttype.svg";
 import Image from "next/image";
 import Student from "../components/student";
 import Tutor from "../components/tutor";
-import { Button } from "../../../components/ui/Button";
+import { Button } from "../../../components/ui/button";
 import { ChevronLeft } from "lucide-react";
 
 const Page = () => {
