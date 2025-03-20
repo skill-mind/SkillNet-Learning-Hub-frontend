@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url.base),
@@ -38,7 +39,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -47,7 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
-        <Providers>{children}</Providers>
+        <Providers>
+          <main className="min-h-screen">{children}</main>
+        </Providers>
+        <Footer />
       </body>
     </html>
   );

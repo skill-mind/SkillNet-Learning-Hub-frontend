@@ -29,6 +29,7 @@
     "sharp": "^0.33.5",
     "starknet": "^6.23.1",
     "tailwind-merge": "^2.6.0",
+    "tailwind-scrollbar-hide": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
