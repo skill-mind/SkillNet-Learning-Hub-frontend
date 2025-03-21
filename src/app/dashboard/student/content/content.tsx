@@ -1,5 +1,5 @@
 import React from "react";
-import Overview from "./overview";
+import Overview from "../overview/overview";
 
 const Content = () => {
   return (

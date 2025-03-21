@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Overview from "./overview";
+import Overview from "./overview/overview";
 import PaymentCard from "@/components/PaymentCard";
-import TutorsAndFacilitatorss from "./tutors";
-import Content from "./content";
+import TutorsAndFacilitatorss from "./tutors-facilitators/tutors";
+import Content from "./content/content";
 
 type TabType = "Overview" | "Content" | "Tutors/Facilitators";
 
