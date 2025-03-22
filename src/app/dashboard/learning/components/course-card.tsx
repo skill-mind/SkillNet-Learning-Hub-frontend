@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function CourseCard() {
   return (
-    <Link href={"/dashboard/student"}>
+    <Link href={"/dashboard/course-overview"}>
       <div className="bg-[#191A19] w-[90%] rounded-lg h-fit">
         <Image
           src={img1}
@@ -48,7 +48,7 @@ export default function CourseCard() {
 
 export function CourseCardStatOverView() {
   return (
-    <Link href={"/dashboard/student"}>
+    <Link href={"/dashboard/course-overview"}>
       <div className="flex flex-col gap-7">
         <div>
           <div className="bg-[#191A19] w-[332px] rounded-lg h-[468px] relative">
@@ -106,7 +106,7 @@ export function CourseCardStatOverView() {
 
 export function MyCourseCard() {
   return (
-    <Link href={"/dashboard/student"}>
+    <Link href={"/dashboard/course-overview"}>
       <div className="bg-[#191A19] w-[332px] rounded-lg h-fit relative border border-[#313130]">
         <Image
           src={img1}

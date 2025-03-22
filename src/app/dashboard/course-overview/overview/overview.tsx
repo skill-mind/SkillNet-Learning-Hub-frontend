@@ -20,6 +20,7 @@ const Overview = () => {
             <button className="absolute inset-0 m-auto w-20 h-20 bg-black bg-opacity-50 rounded-full flex items-center justify-center  hover:bg-opacity-80 transition-all"></button>
           </div>
         </div>
+        
         {/* Course Description */}
         <div className="mb-8 p-5  max-w-3xl rounded-lg bg-[#1D1D1C]">
           <h2 className="text-xl font-[18px] text-[#767776] mb-4">Welcome</h2>
