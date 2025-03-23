@@ -66,34 +66,25 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
         <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />
       </button>
 
-      <nav className="flex items-center gap-4">
-        <ul className="hidden lg:block">
-          <li>Jobs</li>
-        </ul>
-
-        {/* Divider */}
-        <span className="w-px h-5 bg-gray-600 mr-[1rem] hidden lg:block"></span>
-
-        <ul className="hidden md:flex justify-center items-center gap-4">
-          <Link href="">
+      <ul className="hidden md:flex justify-center items-center gap-4">
+        <Link href="">
+          <span
+            className={`relative cursor-pointer pb-1 group ${
+              pathname === "/dashboard/learning"
+                ? "text-white"
+                : "text-[#FCFCFC]"
+            }`}
+          >
+            Learning Hub
             <span
-              className={`relative cursor-pointer pb-1 group ${
-                pathname === "/dashboard/learning"
-                  ? "text-white"
-                  : "text-[#FCFCFC]"
-              }`}
-            >
-              Learning Hub
-              <span
-                className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
+              className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
           ${
-            pathname === "/dashboard/learning" ? "scale-x-100" : "scale-x-0"
+            pathname === "/dashboard/learning" || pathname === "/dashboard/learning/class" ? "scale-x-100" : "scale-x-0"
           } group-hover:scale-x-100`}
-              />
-            </span>
-          </Link>
-        </ul>
-      </nav>
+            />
+          </span>
+        </Link>
+      </ul>
 
       {/* Desktop Wallet Button */}
       <div className="hidden md:flex items-center gap-7 relative ">
