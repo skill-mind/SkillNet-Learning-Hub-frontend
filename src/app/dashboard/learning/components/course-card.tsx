@@ -3,6 +3,7 @@ import Image from "next/image";
 import img1 from "../../../../../public/image/Rectangle 8.jpg";
 import Students from "@/svg/students";
 import StarIcon from "@/svg/starIcon";
+import Link from "next/link";
 
 export default function CourseCard() {
   return (
@@ -101,7 +102,7 @@ export function CourseCardStatOverView() {
 
 export function MyCourseCard() {
   return (
-    <div className="bg-[#191A19] w-[332px] rounded-lg h-fit relative border border-[#313130]">
+    <Link href={"/dashboard/learning/class"} className="bg-[#191A19] w-[332px] rounded-lg h-fit relative border border-[#313130]">
       <Image
         src={img1}
         className="rounded-ss-lg rounded-se-lg w-full h-[202px]"
@@ -137,6 +138,6 @@ export function MyCourseCard() {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
