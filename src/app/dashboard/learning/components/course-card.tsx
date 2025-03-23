@@ -106,41 +106,39 @@ export function CourseCardStatOverView() {
 
 export function MyCourseCard() {
   return (
-    <Link href={"/dashboard/course-overview"}>
-      <div className="bg-[#191A19] w-[332px] rounded-lg h-fit relative border border-[#313130]">
-        <Image
-          src={img1}
-          className="rounded-ss-lg rounded-se-lg w-full h-[202px]"
-          alt=""
-        />
-        <div className="p-4 gap-6 grid">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="font-medium text-lg">
-                Blockchain Development Bootcamp: Zero to Hero
-              </h1>
-              <h4 className="text-[#696969]">Satoshi Nakamoto</h4>
-            </div>
-            <span className="bg-[#1B1B1B] py-1 px-3 rounded-full shadow-md">
-              $29.99
-            </span>
+    <Link href={"/dashboard/learning/class"} className="bg-[#191A19] w-[332px] rounded-lg h-fit relative border border-[#313130]">
+      <Image
+        src={img1}
+        className="rounded-ss-lg rounded-se-lg w-full h-[202px]"
+        alt=""
+      />
+      <div className="p-4 gap-6 grid">
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="font-medium text-lg">
+              Blockchain Development Bootcamp: Zero to Hero
+            </h1>
+            <h4 className="text-[#696969]">Satoshi Nakamoto</h4>
           </div>
-          <div className="flex items-center">
-            <Timer className="text-[#696969]" />
-            <h3>
-              <span className="text-[#696969]">Completed:</span> 5/5 Modules
-            </h3>
-          </div>
+          <span className="bg-[#1B1B1B] py-1 px-3 rounded-full shadow-md">
+            $29.99
+          </span>
+        </div>
+        <div className="flex items-center">
+          <Timer className="text-[#696969]" />
+          <h3>
+            <span className="text-[#696969]">Completed:</span> 5/5 Modules
+          </h3>
+        </div>
 
-          <div className="flex items-center gap-3 text-sm font-normal">
-            <h2>You gave this course a 4 star rating</h2>
-            <div className="flex justify-between gap-1 items-center text-[#696969]">
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-            </div>
+        <div className="flex items-center gap-3 text-sm font-normal">
+          <h2>You gave this course a 4 star rating</h2>
+          <div className="flex justify-between gap-1 items-center text-[#696969]">
+            <StarIcon />
+            <StarIcon />
+            <StarIcon />
+            <StarIcon />
+            <StarIcon />
           </div>
         </div>
       </div>
