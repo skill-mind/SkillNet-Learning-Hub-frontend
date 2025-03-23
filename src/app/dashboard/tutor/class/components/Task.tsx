@@ -3,6 +3,7 @@ import { Edit2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { DownloadModal } from "./DownloadModal";
+import { EditModal } from "./EditModal";
 
 interface Submission {
   id: number;
@@ -65,6 +66,27 @@ const MOCK_SUBMISSIONS: Submission[] = [
 export const Task = ({ onEdit, canEdit = false }: TaskProps) => {
   const [selectedSubmission, setSelectedSubmission] =
     useState<Submission | null>(null);
+    
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    
+  const [taskContent, setTaskContent] = useState(`Research & Write:
+
+• Provide a brief history of digital technology, starting from early computing devices to modern-day innovations (e.g., AI, blockchain, IoT).
+• Identify and discuss three major technological breakthroughs that have significantly impacted businesses, education, and daily life.
+• Explain how digital technology has transformed communication, entertainment, and the workplace.
+
+Submission
+
+• Format: PDF or DOCX
+• Submission Method: Upload via the course portal`);
+
+  const handleOpenEditModal = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const handleSaveTask = (newContent: string) => {
+    setTaskContent(newContent);
+  };
 
   return (
     <>
@@ -73,7 +95,7 @@ export const Task = ({ onEdit, canEdit = false }: TaskProps) => {
           <h2 className="text-xl font-semibold text-white">Tasks</h2>
           {canEdit && (
             <button
-              onClick={onEdit}
+              onClick={handleOpenEditModal}
               className="flex items-center gap-2 text-[#767776] hover:text-white border border-[#373737] rounded-full px-4 py-2"
             >
               <Edit2 size={16} />
@@ -83,49 +105,8 @@ export const Task = ({ onEdit, canEdit = false }: TaskProps) => {
         </div>
         <hr className="border-[#292929] my-4" />
 
-        <div className="space-y-4 mb-8">
-          <h3 className="text-lg font-medium text-[#767776]">
-            Research & Write:
-          </h3>
-          <ul className="space-y-4 text-[#D9D9D9] text-[14px]">
-            <li className="flex gap-2">
-              <span className="text-[#767776]">•</span>
-              <span>
-                Provide a brief history of digital technology, starting from
-                early computing devices to modern-day innovations (e.g., AI,
-                blockchain, IoT).
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-[#767776]">•</span>
-              <span>
-                Identify and discuss three major technological breakthroughs
-                that have significantly impacted businesses, education, and
-                daily life.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-[#767776]">•</span>
-              <span>
-                Explain how digital technology has transformed communication,
-                entertainment, and the workplace.
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div className="space-y-4 mb-8">
-          <h3 className="text-lg font-medium text-[#767776]">Submission</h3>
-          <ul className="space-y-4 text-[#D9D9D9] text-[14px]">
-            <li className="flex gap-2">
-              <span className="text-[#767776]">•</span>
-              <span>Format: PDF or DOCX</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-[#767776]">•</span>
-              <span>Submission Method: Upload via the course portal</span>
-            </li>
-          </ul>
+        <div className="space-y-4 mb-8 whitespace-pre-line text-[#D9D9D9] text-[14px]">
+          {taskContent}
         </div>
 
         <div className="space-y-4">
@@ -136,7 +117,8 @@ export const Task = ({ onEdit, canEdit = false }: TaskProps) => {
             {MOCK_SUBMISSIONS.map((submission) => (
               <div
                 key={submission.id}
-                className="flex items-center justify-between p-4 border border-[#252625] hover:bg-[#1D1E1D] transition-all duration-200 rounded-lg"
+                className="flex items-center justify-between p-4 border border-[#252625] hover:bg-[#1D1E1D] transition-all duration-200 rounded-lg cursor-pointer"
+                onClick={() => setSelectedSubmission(submission)}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-[#252625]">
@@ -161,52 +143,51 @@ export const Task = ({ onEdit, canEdit = false }: TaskProps) => {
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => setSelectedSubmission(submission)}
-                  className="flex items-center gap-2 text-[#A8C789] hover:text-[#b3e085] border border-[#2D2E2D] bg-[#101110] rounded-lg py-1 px-2 text-[12px]"
-                >
+                <div className="text-[#767776]">
                   <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
+                      d="M12 5V19"
                       stroke="currentColor"
-                      strokeWidth="1.5"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                     <path
-                      d="M4.66699 6.66667L8.00033 10L11.3337 6.66667"
+                      d="M5 12H19"
                       stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M8 10V2"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
-                  Download
-                </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+      
+      {selectedSubmission && (
+        <DownloadModal
+          isOpen={selectedSubmission !== null}
+          onClose={() => setSelectedSubmission(null)}
+          userName={selectedSubmission.user.name}
+          taskName={selectedSubmission.taskName}
+        />
+      )}
 
-      <DownloadModal
-        isOpen={!!selectedSubmission}
-        onClose={() => setSelectedSubmission(null)}
-        userName={selectedSubmission?.user.name || ""}
-        taskName={selectedSubmission?.taskName || ""}
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title="Task"
+        content={taskContent}
+        onSave={handleSaveTask}
       />
     </>
   );
