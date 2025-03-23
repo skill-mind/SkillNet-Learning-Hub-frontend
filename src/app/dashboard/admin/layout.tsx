@@ -19,8 +19,8 @@
 "use client"
 
 import React, { useState } from "react";
-import Navbar from "@/app/dashboard/Navbar";
-import Sidebar from "@/app/dashboard/sidebar";
+import Navbar from "@/app/dashboard/admin/Navbar";
+import Sidebar from "@/app/dashboard/admin/sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
