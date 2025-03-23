@@ -3,11 +3,41 @@ import FaqItem from "./components/Faqitem";
 
 
 const faqData = [
-  { title: "Course Creation Guide (How to structure, upload, and edit courses)" },
-  { title: "Earnings & Payments (How earnings are calculated & withdrawal process)" },
-  { title: "Student Engagement Tips (How to improve student interaction & ratings)" },
-  { title: "Technical Issues (Troubleshooting course uploads, media files, etc.)" },
-  { title: "Blockchain Integration Help (Understanding on-chain payments & certifications)" },
+  {
+    title: "Enrolling in a Course",
+    descriptions: [
+      "Find a Course: Browse available courses based on interests or career goals.",
+      "Check Requirements: Review prerequisites, course syllabus, and learning objectives.",
+      "Sign Up: Create an account or log in to enroll in the course.",
+      "Select Payment Option: Choose between free, one-time payment, or subscription models.",
+      "Confirm Enrollment: Complete the enrollment process and gain access to course materials."
+    ]
+  },
+  {
+    title: "Starting the Course",
+    descriptions: [
+      "Access Materials: Navigate through video lectures, PDFs, quizzes, and discussion forums.",
+      "Set a Learning Schedule: Plan study time to stay on track with the course.",
+      "Engage with Instructors & Peers: Participate in discussions, ask questions, and seek feedback."
+    ]
+  },
+  {
+    title: "Completing the Course",
+    descriptions: [
+      "Submit Assignments & Quizzes: Complete exercises to reinforce learning.",
+      "Track Progress: Use the platform's dashboard to monitor completion status.",
+      "Take Final Assessment: Pass required tests or projects to earn certification."
+    ]
+  },
+  {
+    title: "Post-Course Actions",
+    descriptions: [
+      "Receive Certification: Download and share your certificate on LinkedIn or resumes.",
+      "Apply Knowledge: Implement what you've learned in real-world projects or job applications.",
+      "Continue Learning: Explore advanced courses or related topics for further skill development."
+    ]
+  },
+ 
 ];
 const tickets = [
   {
@@ -45,7 +75,7 @@ function Page() {
 <main className=" w-full flex flex-col gap-4 mb-11">
   {
     faqData.map((faq, index)=>(
-      <FaqItem key={index} title={faq.title}/>
+      <FaqItem key={index} title={faq.title} descriptions={faq.descriptions}/>
     ))
   }
   
