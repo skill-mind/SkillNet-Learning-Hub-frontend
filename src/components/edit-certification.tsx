@@ -99,8 +99,8 @@ export default function EditCertification({ onClose }: EditCertificationProps) {
   };
 
   return (
-    <div className="absolute inset-0 backdrop-blur-3xl top-0 left-0 w-full flex justify-center py-[100px]">
-      <section className="bg-[#161716] max-w-[761px] w-full text-white p-[24px] rounded-[12px] border flex flex-col gap-[24px] border-[#40403E]">
+    <div className="absolute inset-0 backdrop-blur-3xl h-screen top-0 left-0 w-full flex justify-center py-[100px]">
+      <section className="bg-[#161716] max-w-[761px] h-fit w-full text-white p-[24px] rounded-[12px] border flex flex-col gap-[24px] border-[#40403E]">
         <div className="flex justify-between gap-[10px] w-full">
           <div className="flex space-x-1 items-center justtify-center">
             <ArrowLeft onClick={onClose} className="hover:cursor-pointer" />

@@ -10,16 +10,16 @@ import Details from "@/components/details";
 import EditCertification from "@/components/edit-certification";
 import EditExperience from "@/components/edit-experience";
 import EditSkill from "@/components/edit-skill";
-
+import AddSkill from "@/components/add-skill";
 
 function Page() {
   const user = true;
   const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [openModal, setOpenModal] = useState<string | null>(null);
 
-    const toggleModal = (modalId: string) => {
-        setOpenModal((prevModal) => (prevModal === modalId ? null : modalId));
-    };
+  const toggleModal = (modalId: string) => {
+    setOpenModal((prevModal) => (prevModal === modalId ? null : modalId));
+  };
   interface Section {
     section: string;
   }
@@ -30,7 +30,6 @@ function Page() {
   const handleSectionClick = (section: Section) => {
     setActiveSection(section);
   };
-
 
   const skills = [
     { name: "Typescript", link: "https://example.com/typescript" },
@@ -51,58 +50,64 @@ function Page() {
       </div>
       <div className="flex flex-col items-center justify-center space-y-7 mt-5">
         {/* user profile */}
-        <div className="flex items-center gap-[12px]">
-          <Image
-            className="h-[82px] w-[82px] object-cover rounded-full cover"
-            src="/userProfile.jpeg"
-            alt="User Profile Image"
-            width={100}
-            height={100}
-          />
-          <div className="flex flex-col">
-            <div className="flex flex-col">
-              <h1 className="text-[24px] text-[#FCFCFC] font-bold">
-                Daniel Ochoja
-              </h1>
-              <span className="text-[14px] text-[#FCFCFC] font-thin">
-                Software Engineer
-              </span>
+
+        <div className="flex-col lg:flex-row  flex items-center gap-[12px] ">
+          <div className="flex flex-col items-center  lg:items-end lg:flex-row">
+            <div className=" flex flex-col md:flex-row gap-[8px]">
+              <Image
+                className="h-[82px] w-[82px] object-cover rounded-full cover"
+                src="/userProfile.jpeg"
+                alt="User Profile Image"
+                width={100}
+                height={100}
+              />
+              <div className="flex flex-col ">
+                <h1 className="text-[24px] text-[#FCFCFC] font-bold">
+                  Daniel Ochoja
+                </h1>
+                <span className="text-[14px] text-[#FCFCFC] font-thin">
+                  Software Engineer
+                </span>
+                <Link className="text-[#A8C789]" href="www.danielochoja.com">
+                  www.danielochoja.com
+                </Link>
+              </div>
             </div>
-            <div className="flex space-x-2">
-              <Link className="text-[#A8C789]" href="www.danielochoja.com">
-                www.danielochoja.com
-              </Link>
-              <div className="flex space-x-2">
-                {skills.map((skill) => (
-                  <div className="flex items-center gap-[5px]">
-                    <Image
-                      className="w-[5px] h-[5px]"
-                      src={"/dot.svg"}
-                      alt="dot"
-                      width={100}
-                      height={100}
-                    />{" "}
-                    <span className="text-[#BBBBBB]">{skill.name}</span>
-                  </div>
-                ))}
+            <div className="flex flex-col lg:flex-row lg:items-end items-center mt-3 gap-[24px] ">
+              <div className="flex flex-col sm:flex-row ml-2 space-x-2 items-end ">
+                <div className="flex  flex-col sm:flex-row space-x-2">
+                  {skills.map((skill) => (
+                    <div className="flex items-center gap-[5px]">
+                      <Image
+                        className="w-[5px] h-[5px]"
+                        src={"/dot.svg"}
+                        alt="dot"
+                        width={100}
+                        height={100}
+                      />{" "}
+                      <span className="text-[#BBBBBB]">{skill.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="md:px-10 flex justify-center my-auto md:justify-start">
+                {user ? (
+                  <button className="border flex flex-none h-[40px] border-[#696969] text-[#ABABAB] rounded-md px-4 py-2">
+                    Edit Profile
+                  </button>
+                ) : (
+                  // border-[#696969]
+                  <button className="border flex flex-none w-[auto] h-[40px] border-[#696969] text-[#ABABAB] rounded-md px-4 py-2">
+                    Send A Message
+                  </button>
+                )}
               </div>
             </div>
           </div>
-
-          <div className="px-10">
-            {user ? (
-              <button className="border w-[auto] h-[40px] border-[#696969] text-[#ABABAB] rounded-md px-4 py-2">
-                Edit Profile
-              </button>
-            ) : (
-              <button className="border w-[auto] h-[40px] border-[#696969] text-[#ABABAB] rounded-md px-4 py-2">
-                Send A Message
-              </button>
-            )}
-          </div>
         </div>
-
-        <div className="w-full md:w-[761px] bg-[">
+        {(activeSection === null &&
+        <div className="w-full lg:max-w-[761px] md:w-full bg-[">
           <div className="flex justify-between w-full items-center my-7 border-b pb-5 border-[#1D1D1C]">
             <h1 className="text-[24px] font-[600] text-[#FCFCFC]">About</h1>
             {user && (
@@ -122,9 +127,9 @@ function Page() {
             date={""}
             subtitle={""}
           />
-        </div>
+        </div>)}
 
-        <div className="w-full md:w-[761px] bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] flex flex-col gap-[48px] p-[24px_20px]">
+        <div className="w-full lg:w-[761px]  bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] flex flex-col gap-[48px] p-[24px_20px]">
           {/* experience section */}
           {(activeSection === null ||
             activeSection.section === "experience") && (
@@ -151,7 +156,7 @@ function Page() {
                       <Pencil size={16} />
                       <span className="text-[14px]">EDIT</span>
                     </div>
-                    <Plus onClick={() => toggleModal('experience')} size={20} />
+                    <Plus onClick={() => toggleModal("experience")} size={20} />
                   </button>
                 )}
               </div>
@@ -220,7 +225,10 @@ function Page() {
                       <span className="text-[14px]">EDIT</span>
                     </div>
 
-                    <Plus  onClick={() => toggleModal('certification')} size={20} />
+                    <Plus
+                      onClick={() => toggleModal("certification")}
+                      size={20}
+                    />
                   </button>
                 )}
               </div>
@@ -286,11 +294,12 @@ function Page() {
                       <Pencil size={16} />
                       <span className="text-[14px]">EDIT</span>
                     </div>
-                    <Plus onClick={() => toggleModal('skill')} size={20} />
+                    <Plus onClick={() => toggleModal("add")} size={20} />
                   </button>
                 )}
               </div>
-              <div className={`${activeSection? "hidden": "flex"} w-full gap-3`}>
+              <div
+                className={`${activeSection ? "hidden" : "flex"} w-full gap-3`}>
                 {skills &&
                   skills.map((skill, index) => (
                     <div
@@ -301,29 +310,35 @@ function Page() {
                     </div>
                   ))}
               </div>
-              <div className={`${activeSection? "flex": "hidden"}  w-full flex-col gap-[32px]`}>
-              {skills.map((skill, index) => (
-                <>
-                
-                  <div
-                  className="border flex justify-between rounded-[4px] px-[12px] py-[6px] border-[#313130] text-[#BBBBBB] mt-3"
-                  key={index}>
-                    <div className="flex flex-col w-full">
-                      <span className="text-[18px] font-[500] text-[#FCFCFC]">
-                  {skill.name}
-                      </span>
-                      <a className="text-[14px] text-[#D0EFB1] font-[400]" href="#">{skill.link}</a>
+              <div
+                className={`${
+                  activeSection ? "flex" : "hidden"
+                }  w-full flex-col gap-[32px]`}>
+                {skills.map((skill, index) => (
+                  <>
+                    <div
+                      className="border flex justify-between rounded-[4px] px-[12px] py-[6px] border-[#313130] text-[#BBBBBB] mt-3"
+                      key={index}>
+                      <div className="flex flex-col w-full">
+                        <span className="text-[18px] font-[500] text-[#FCFCFC]">
+                          {skill.name}
+                        </span>
+                        <a
+                          className="text-[14px] text-[#D0EFB1] font-[400]"
+                          href="#">
+                          {skill.link}
+                        </a>
+                      </div>
+                      {user && (
+                        <button
+                          onClick={() => toggleModal("skill")}
+                          className="w-auto h-[40px] text-[#ABABAB] rounded-md space-x-1 items-center flex">
+                          <Pencil size={16} />
+                          <span className="text-[14px]">EDIT</span>
+                        </button>
+                      )}
                     </div>
-                    {user && (
-                  <button
-                  onClick={() => toggleModal('skill')}
-                    className="w-auto h-[40px] text-[#ABABAB] rounded-md space-x-1 items-center flex">
-                      <Pencil size={16} />
-                      <span className="text-[14px]">EDIT</span>
-                  </button>
-                )}
-                  </div>
-                  <div className="bg-[#1D1D1C] h-[2px] w-full"></div>
+                    <div className="bg-[#1D1D1C] h-[2px] w-full"></div>
                   </>
                 ))}
               </div>
@@ -331,9 +346,18 @@ function Page() {
           )}
         </div>
       </div>
-      {openModal === 'experience' && (<EditExperience  onClose={() => toggleModal('experience')}/> )}
-      {openModal === 'certification' && (<EditExperience  onClose={() => toggleModal('certification')}/> )}
-      {openModal === 'skill' && (<EditSkill  onClose={() => toggleModal('skill')}/>)}
+      {openModal === "experience" && (
+        <EditExperience onClose={() => toggleModal("experience")} />
+      )}
+      {openModal === "certification" && (
+        <EditExperience onClose={() => toggleModal("certification")} />
+      )}
+      {openModal === "skill" && (
+        <EditSkill onClose={() => toggleModal("skill")} />
+      )}
+       {openModal === "add" && (
+        <AddSkill onClose={() => toggleModal("add")} />
+      )}
     </section>
   );
 }
