@@ -60,7 +60,7 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
   const { disconnect } = useDisconnect();
 
   return (
-    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] sticky top-0 left-0 z-50">
+    <nav className="w-full flex justify-between items-center px-4 sm:px-8 lg:px-16 py-[22px] bg-[#101110] text-sm leading-6 text-[#FCFCFC] sticky top-0 left-0 ">
       {/* Logo */}
       <button className="flex items-center cursor-pointer">
         <Image className="w-[100px] h-[40px]" src={Logo} alt="Logo" />

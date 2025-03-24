@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { Book } from "@/svg/book";
 import { HomeIcon } from "@/svg/home";
 import { Notification } from "@/svg/notification";
@@ -8,9 +9,19 @@ import { SupportIcon } from "@/svg/support-icon";
 import { WishList } from "@/svg/wish-list";
 import { User } from "lucide-react";
 import Link from "next/link";
+import ChatBotButton from "@/components/ChatbotModal";
 
 function SideBar() {
   const path = usePathname();
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  
+    const handleOpenChatbot = () => {
+      setIsChatbotOpen(true);
+    };
+  
+    const handleCloseChatbot = () => {
+      setIsChatbotOpen(false);
+    };
   return (
     <nav className="h-[500px] max-h-[600px] flex justify-between p-6 flex-col font-normal text-lg bg-[#161716]">
       <ul className="gap-3 grid">
@@ -74,10 +85,14 @@ function SideBar() {
           className={`${
             path == "ai-chat-bot" ? "bg-[#2D2E2D]" : ""
           } flex items-center gap-4 hover:bg-[#2D2E2D] rounded-md p-2`}
+          onClick={() => {
+            handleOpenChatbot();
+          }}
         >
           <SupportIcon />
           <span className="sm:block hidden">AI chat bot</span>
         </button>
+        <ChatBotButton isOpen={isChatbotOpen} onClose={handleCloseChatbot} />
       </ul>
     </nav>
   );

@@ -15,7 +15,6 @@ interface ChatbotModalProps {
   onClose: () => void;
 }
 
-
 const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -33,6 +32,7 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Autoscroll to bottom when messages update
   useEffect(() => {
@@ -40,6 +40,27 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+
+  // Focus input when modal opens
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
 
   const handleSendMessage = () => {
     if (inputMessage.trim() === '') return;
@@ -71,10 +92,10 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Blurred dark overlay with 0.5 opacity */}
-      <div className="fixed inset-0 bg-[#101110]   bg-opacity-50 backdrop-blur-md z-40"></div>
+      <div onClick={onClose} className="fixed inset-0 bg-[#101110]   bg-opacity-50 backdrop-blur-md z-40"></div>
 
-      {/* Modal container with new dimensions */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center ">
+      {/* Modal container */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center mx-2">
         <div className="bg-[#101110] h-[85%] w-[700px] border border-gray-800 flex flex-col rounded-lg overflow-hidden">
           {/* Header */}
           <div className="px-4 py-3 flex items-center justify-between border-b border-gray-800">
@@ -82,7 +103,6 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
               <button onClick={onClose} className="mr-3 gap-2 flex items-center text-gray-400 hover:text-gray-300">
                 <ArrowLeft size={20} /> Back
               </button>
-
               <div className="flex items-center">
                 <div className="w-6 h-6 bg-white rounded-full mr-2"></div>
                 <span className="font-medium text-white">Skillnet Chatbot</span>
@@ -101,7 +121,6 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
           {/* Chat messages */}
           <div className="flex-1 overflow-y-auto p-4 bg-[#101110]">
             <div className="space-y-4 flex flex-col justify-end min-h-full">
-              <div className="mt-auto"></div>
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -134,10 +153,11 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
               <button className="text-gray-400 mr-2">
                 <Mic size={20} />
               </button>
-              <button className="text-gray-400 ml-2 mr-4">
+              <button className="text-gray-400">
                 <Smile size={20} />
               </button>
               <input
+                ref={inputRef}
                 type="text"
                 placeholder="Type a message"
                 className="bg-transparent text-white flex-1 outline-none"
@@ -147,7 +167,6 @@ const ChatbotModal: React.FC<ChatbotModalProps> = ({ isOpen, onClose }) => {
                   if (e.key === 'Enter') handleSendMessage();
                 }}
               />
-
               <button
                 onClick={handleSendMessage}
                 className="bg-[#A8C789] hover:bg-[#6d9b35] w-8 h-8 rounded-full flex items-center justify-center"
