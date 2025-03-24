@@ -106,7 +106,7 @@ export function Sidebar() {
         </nav>
       </div>
 
-      <div className="absolute -bottom-20 w-64 border-t border-gray-800">
+      <div className="mt-auto border-t mx-[15px] border-gray-800">
         <NavItem
           icon={<Headset size={20} />}
           label="Support"

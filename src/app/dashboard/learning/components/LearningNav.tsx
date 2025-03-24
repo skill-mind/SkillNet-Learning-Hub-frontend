@@ -9,7 +9,7 @@ import { useWalletContext } from "../../../../useContext/WalletContext";
 import { useAccount, useDisconnect } from "@starknet-react/core";
 import { WalletSelectorUI } from "../../../../components/WalletConnectModal";
 import { Notification } from "@/svg/notification";
-import avatar from "../../../../../public/image/Ellipse 43.png"
+import avatar from "../../../../../public/image/Ellipse 43.png";
 
 interface NavLink {
   href: string;
@@ -19,8 +19,6 @@ interface NavLink {
 interface NavbarProps {
   navLinks?: NavLink[];
 }
-
-
 
 export default function Navbar({ navLinks = [] }: NavbarProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -81,7 +79,7 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
             <span
               className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
           ${
-            pathname === "/dashboard/learning" ? "scale-x-100" : "scale-x-0"
+            pathname === "/dashboard/learning" || pathname === "/dashboard/learning/class" ? "scale-x-100" : "scale-x-0"
           } group-hover:scale-x-100`}
             />
           </span>
@@ -101,9 +99,7 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
         </div>
         {!address ? (
           <>
-            <button
-              className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 cursor-pointer border text-white text-center font-semibold rounded-lg transition-colors hover:text-black hover:bg-white flex items-center  gap-3"
-            >
+            <button className="px-4 py-2 bg-greenish-500 hover:bg-greenish-300 cursor-pointer border text-white text-center font-semibold rounded-lg transition-colors hover:text-black hover:bg-white flex items-center  gap-3">
               <Image src={avatar} className="w-7 h-7 rounded-full" alt="user" />
               Not connected
             </button>
@@ -114,7 +110,7 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
               {address.slice(0, 6)}...{address.slice(-4)}
             </div>
             <button
-              onClick={() => disconnect()} 
+              onClick={() => disconnect()}
               className="cursor-pointer border px-4 py-2 bg-greenish-500 text-center hover:bg-greenish-300 text-white font-semibold rounded-lg transition-colors hover:text-black hover:bg-white"
             >
               Disconnect
@@ -158,23 +154,23 @@ export default function Navbar({ navLinks = [] }: NavbarProps) {
             <h3 className="text-sm font-semibold text-white">SELECT PAGE</h3>
           </div>
           <div className="py-5 pl-7">
-              <Link href="">
+            <Link href="">
+              <span
+                className={`relative cursor-pointer pb-1 group ${
+                  pathname === "/dashboard/learning"
+                    ? "text-white"
+                    : "text-[#FCFCFC]"
+                }`}
+              >
+                Learning Hub
                 <span
-                  className={`relative cursor-pointer pb-1 group ${
-                    pathname === "/dashboard/learning"
-                      ? "text-white"
-                      : "text-[#FCFCFC]"
-                  }`}
-                >
-                  Learning Hub
-                  <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 
           ${
             pathname === "/dashboard/learning" ? "scale-x-100" : "scale-x-0"
           } group-hover:scale-x-100`}
-                  />
-                </span>
-              </Link>
+                />
+              </span>
+            </Link>
           </div>
         </div>
       )}
