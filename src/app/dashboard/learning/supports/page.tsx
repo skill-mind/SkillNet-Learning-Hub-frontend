@@ -1,9 +1,11 @@
+"use client"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import FaqItem from "./components/Faqitem";
+import { useState } from "react";
 
 
 const faqData = [
-  {
+  { id: "faq-1",
     title: "Enrolling in a Course",
     descriptions: [
       "Find a Course: Browse available courses based on interests or career goals.",
@@ -13,7 +15,7 @@ const faqData = [
       "Confirm Enrollment: Complete the enrollment process and gain access to course materials."
     ]
   },
-  {
+  {id: "faq-2",
     title: "Starting the Course",
     descriptions: [
       "Access Materials: Navigate through video lectures, PDFs, quizzes, and discussion forums.",
@@ -22,6 +24,7 @@ const faqData = [
     ]
   },
   {
+    id: "faq-3",
     title: "Completing the Course",
     descriptions: [
       "Submit Assignments & Quizzes: Complete exercises to reinforce learning.",
@@ -30,6 +33,7 @@ const faqData = [
     ]
   },
   {
+    id: "faq-4",
     title: "Post-Course Actions",
     descriptions: [
       "Receive Certification: Download and share your certificate on LinkedIn or resumes.",
@@ -68,6 +72,11 @@ const tickets = [
 ]
 
 function Page() {
+  const [openItemId, setOpenItemId] = useState<string | null>(null)
+
+  const handleToggle = (id: string) => {
+    setOpenItemId(openItemId === id ? null : id)
+  }
   return(
 <>
 
@@ -75,7 +84,7 @@ function Page() {
 <main className=" w-full flex flex-col gap-4 mb-11">
   {
     faqData.map((faq, index)=>(
-      <FaqItem key={index} title={faq.title} descriptions={faq.descriptions}/>
+      <FaqItem id={faq.id} key={faq.id} title={faq.title} descriptions={faq.descriptions} isOpen={openItemId === faq.id} onToggle={handleToggle}/>
     ))
   }
   
