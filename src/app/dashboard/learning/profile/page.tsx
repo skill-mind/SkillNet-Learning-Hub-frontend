@@ -11,6 +11,7 @@ import EditCertification from "@/components/edit-certification";
 import EditExperience from "@/components/edit-experience";
 import EditSkill from "@/components/edit-skill";
 import AddSkill from "@/components/add-skill";
+import EditAbout from "@/components/edit-about";
 
 function Page() {
   const user = true;
@@ -109,18 +110,39 @@ function Page() {
 
 
         {/* main body */}
-        <div className="w-fit lg:max-w-[761px] ">
-        {(activeSection === null &&
+        <div className={`w-fit lg:max-w-[761px] `}>
+        {(activeSection === null ||
+            activeSection.section === "about") && (
         <div >
           <div className="flex justify-between w-full items-center my-7 border-b pb-5 border-[#1D1D1C]">
-            <h1 className="text-[24px] font-[600] text-[#FCFCFC]">About</h1>
+          <h1 className="text-[24px] items-center flex space-x-2 font-[600] text-[#FCFCFC]">
+                  {activeSection && (
+                    <div>
+                      <ArrowLeft onClick={handleBackClick} />
+                    </div>
+                  )}
+                  <span>About</span>
+                </h1>
             {user && (
-              <button className="w-auto h-[40px] text-[#ABABAB] rounded-md space-x-1 items-center flex">
-                <Pencil size={16} />
-                <span className="text-[14px]">EDIT</span>
-                <Plus size={20} />
-              </button>
-            )}
+                  <button
+                    onClick={() =>
+                      handleSectionClick({ section: "about" })
+                    }
+                    className="w-auto h-[40px] text-[#ABABAB] rounded-md space-x-1 items-center flex">
+                    <div
+                      className={`space-x-1 ${
+                        activeSection ? "hidden" : "flex"
+                      }`}>
+                      <Pencil size={16} />
+                      <span className="text-[14px]">EDIT</span>
+                    </div>
+
+                    <Plus
+                      onClick={() => toggleModal("about")}
+                      size={20}
+                    />
+                  </button>
+                )}
           </div>
           <Details
             onClick={() => {}}
@@ -131,9 +153,10 @@ function Page() {
             date={""}
             subtitle={""}
           />
-        </div>)}
+        </div>
+      )}
 
-        <div className="bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] flex flex-col gap-[48px] p-[24px_20px]">
+        <div className={`bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] ${activeSection? "hidden" : "flex"} flex-col mt-4 gap-[48px] p-[24px_20px]`}>
           {/* experience section */}
           {(activeSection === null ||
             activeSection.section === "experience") && (
@@ -363,6 +386,9 @@ function Page() {
       )}
        {openModal === "add" && (
         <AddSkill onClose={() => toggleModal("add")} />
+      )}
+      {openModal === "about" && (
+        <EditAbout onClose={() => toggleModal("about")} />
       )}
     </section>
   );
