@@ -5,6 +5,9 @@ import Tutor from "./tutor/tutor";
 import Student from "./students/students";
 import Notification from "./notification/notification";
 import Profile from "./profile/profile";
+import Course from "./courses/courses";
+import Earnings from "./earnings/earnings";
+import Support from "./support/support";
 
 function Page() {
   const { activeSection } = useContext(DashBoardContext);
@@ -14,9 +17,9 @@ function Page() {
       {activeSection === "home" && <Tutor />}
       {activeSection === "students" && <Student />}
       {activeSection === "notifications" && <Notification />}
-      {activeSection === "courses" && "courses"}
-      {activeSection === "earnings" && "earnings"}
-      {activeSection === "support" && "support"}
+      {activeSection === "courses" && <Course />}
+      {activeSection === "earnings" && <Earnings />}
+      {activeSection === "support" && <Support />}
       {activeSection === "profile" && <Profile />}
     </div>
   );
