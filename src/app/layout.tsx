@@ -3,6 +3,7 @@ import { Providers } from "@/components/Providers";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/Footer";
+import { ClientWrapper } from "@/components/ClientWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url.base),
@@ -48,7 +49,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative w-full bg-[#0E0F0E] bg-cover bg-center bg-no-repeat overflow-x-hidden">
         <Providers>
-          <main className="min-h-screen">{children}</main>
+          <ClientWrapper>
+            <main className="min-h-screen">{children}</main>
+          </ClientWrapper>
         </Providers>
         <Footer />
       </body>
