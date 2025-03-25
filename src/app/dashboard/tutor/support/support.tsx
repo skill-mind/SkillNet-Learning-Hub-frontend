@@ -16,15 +16,13 @@ interface HistoryItem {
 }
 
 const SupportDashboard: React.FC = () => {
-  const [expandedItems, setExpandedItems] = useState<{
-    [key: number]: boolean;
-  }>({});
+  const [expandedItemIndex, setExpandedItemIndex] = useState<number | null>(
+    null
+  );
 
   const toggleExpand = (index: number) => {
-    setExpandedItems((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+    // If clicking the already expanded item, collapse it
+    setExpandedItemIndex(expandedItemIndex === index ? null : index);
   };
 
   const supportItems: SupportItem[] = [
@@ -203,11 +201,11 @@ const SupportDashboard: React.FC = () => {
                     onClick={() => toggleExpand(index)}
                     className="bg-transparent border border-gray-700 px-3 py-1 text-xs rounded hover:bg-gray-800 transition"
                   >
-                    Expand
+                    {expandedItemIndex === index ? "Collapse" : "Expand"}
                   </button>
                 </div>
 
-                {expandedItems[index] && (
+                {expandedItemIndex === index && (
                   <div className="mt-3 text-sm text-gray-300 whitespace-pre-wrap">
                     {item.body}
                   </div>

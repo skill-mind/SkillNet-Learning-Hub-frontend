@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import NewCourse from "../component/CreateNewCourse";
 import { PlusIcon, PencilIcon } from "lucide-react";
-import { MdOutlineEdit } from "react-icons/md";
 
 interface Course {
   id: string;

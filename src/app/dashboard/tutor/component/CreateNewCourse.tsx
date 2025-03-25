@@ -117,20 +117,15 @@ const MediaUpload: React.FC<MediaUploadProps> = ({ onUpload }) => {
 
           <div className="space-y-4 mt-2">
             <div className="flex flex-col space-y-1">
-              <label className="text-xs text-gray-400">Course amount*</label>
+              <label className="text-xs text-gray-400">Course price*</label>
               <div className="relative">
-                <select
+                <input
+                  placeholder="Course price"
+                  type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   className="w-full bg-transparent border border-[#2D2E2D] rounded-md p-3 text-sm appearance-none pr-8"
-                >
-                  <option value="$24">$24</option>
-                  <option value="$50">$50</option>
-                  <option value="$75">$75</option>
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                  <FaChevronDown />
-                </div>
+                ></input>
               </div>
             </div>
 
@@ -140,7 +135,12 @@ const MediaUpload: React.FC<MediaUploadProps> = ({ onUpload }) => {
                 <select
                   value={access}
                   onChange={(e) => setAccess(e.target.value)}
-                  className="w-full bg-transparent border border-[#2D2E2D] rounded-md p-3 text-sm appearance-none pr-8"
+                  className="w-full bg-transparent border border-[#2D2E2D] rounded-md p-3 text-sm appearance-none pr-8  
+                  [&>option]:bg-[#101110]
+                  [&>option]:text-[#D9D9D9]
+                  [&>option:hover]:bg-[#696969]
+                  [&>option:checked]:bg-[#101110]
+                  [&>option:checked]:text-[#FCFCFC]"
                 >
                   <option value="Paid Course">Paid Course</option>
                   <option value="Free Course">Free Course</option>
@@ -200,7 +200,11 @@ const MediaUpload: React.FC<MediaUploadProps> = ({ onUpload }) => {
                 <select
                   value={certification}
                   onChange={(e) => setCertification(e.target.value)}
-                  className="w-full bg-transparent border border-[#2D2E2D] rounded-md p-3 text-sm appearance-none pr-8"
+                  className="w-full bg-transparent border border-[#2D2E2D] rounded-md p-3 text-sm appearance-none pr-8  [&>option]:bg-[#101110]
+                  [&>option]:text-[#D9D9D9]
+                  [&>option:hover]:bg-[#696969]
+                  [&>option:checked]:bg-[#101110]
+                  [&>option:checked]:text-[#FCFCFC]"
                 >
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
