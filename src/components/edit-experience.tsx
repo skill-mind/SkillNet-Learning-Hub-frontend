@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { ArrowLeft, X, ChevronDown, CirclePlus } from "lucide-react";
-import Input from "./Forms/Input";
+import Input from "@/app/dashboard/learning/profile/components/Input";
 import { useState, useRef } from "react";
-import TextArea from "./Forms/TextArea";
+import TextArea from "@/app/dashboard/learning/profile/components/TextArea";
 import { Button } from "./ui/button";
 
 interface EditExperienceProps {
@@ -92,14 +92,18 @@ export default function EditExperience({ onClose }: EditExperienceProps) {
   };
 
   return (
-    <div className="absolute inset-0 backdrop-blur-3xl top-0 left-0 w-full flex justify-center py-[100px]">
-      <section className="bg-[#161716] w-full max-w-[761px] text-white p-[24px] rounded-[12px] border flex flex-col gap-[24px] border-[#40403E]">
+    <div className="absolute  inset-0 backdrop-blur-3xl top-0 left-0 w-full flex justify-center py-[100px]">
+      <section className="bg-[#161716] w-full h-full max-w-[761px] text-white p-[24px] rounded-[12px] border flex flex-col gap-[24px] border-[#40403E] overflow-y-scroll [&::-webkit-scrollbar]:hidden">
         <div className="flex justify-between gap-[10px] w-full">
           <div className="flex space-x-1 items-center justtify-center">
-            <ArrowLeft onClick={onClose} className="hover:cursor-pointer" />
+           <span className="hover:cursor-pointer">
+            <ArrowLeft onClick={onClose}  />
+            </span> 
             <span className="text-[24px] font-[600] text-[#FCFCFC]">Edit Experience</span>
           </div>
+          <span className="hover:cursor-pointer">
           <X onClick={onClose} className="hover:cursor-pointer" size={24} color="white" />
+          </span>
         </div>
         <div className="w-full bg-[#1D1D1C] h-[1px]"></div>
         <form className="flex flex-col gap-[20px] w-full" >

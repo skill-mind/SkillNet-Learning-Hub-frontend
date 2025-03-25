@@ -75,9 +75,9 @@ function Page() {
             </div>
             <div className="flex flex-col lg:flex-row lg:items-end items-center mt-3 gap-[24px] ">
               <div className="flex flex-col sm:flex-row ml-2 space-x-2 items-end ">
-                <div className="flex  flex-col sm:flex-row space-x-2">
+                <div className="  grid grid-cols-2 sm:grid-cols-4 sm:space-x-2">
                   {skills.map((skill) => (
-                    <div className="flex items-center gap-[5px]">
+                    <div className="flex col-span-1 items-center gap-[5px]">
                       <Image
                         className="w-[5px] h-[5px]"
                         src={"/dot.svg"}
@@ -106,8 +106,12 @@ function Page() {
             </div>
           </div>
         </div>
+
+
+        {/* main body */}
+        <div className="w-fit lg:max-w-[761px] ">
         {(activeSection === null &&
-        <div className="w-full lg:max-w-[761px] md:w-full bg-[">
+        <div >
           <div className="flex justify-between w-full items-center my-7 border-b pb-5 border-[#1D1D1C]">
             <h1 className="text-[24px] font-[600] text-[#FCFCFC]">About</h1>
             {user && (
@@ -129,7 +133,7 @@ function Page() {
           />
         </div>)}
 
-        <div className="w-full lg:w-[761px]  bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] flex flex-col gap-[48px] p-[24px_20px]">
+        <div className="bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] flex flex-col gap-[48px] p-[24px_20px]">
           {/* experience section */}
           {(activeSection === null ||
             activeSection.section === "experience") && (
@@ -345,12 +349,14 @@ function Page() {
             </div>
           )}
         </div>
+
+        </div>
       </div>
       {openModal === "experience" && (
         <EditExperience onClose={() => toggleModal("experience")} />
       )}
       {openModal === "certification" && (
-        <EditExperience onClose={() => toggleModal("certification")} />
+        <EditCertification onClose={() => toggleModal("certification")} />
       )}
       {openModal === "skill" && (
         <EditSkill onClose={() => toggleModal("skill")} />
