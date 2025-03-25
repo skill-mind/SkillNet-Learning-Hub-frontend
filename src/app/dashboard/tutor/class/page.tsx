@@ -40,6 +40,11 @@ export default function ClassPage() {
     setTabs(tabs.map((tab, i) => ({ ...tab, isActive: i === index })));
   };
 
+  // The editHandler could be used later for additional functionality like tracking changes
+  const handleEdit = (section: string) => {
+    console.log(`Editing ${section} section`);
+  };
+
   return (
     <div className="min-h-screen">
       <div className="px-4 sm:px-6 lg:px-[100px] pb-6 sm:pb-8 lg:pb-12">
@@ -55,8 +60,8 @@ export default function ClassPage() {
 
             {activeTab === 0 && <Overview canEdit={true} />}
             {activeTab === 1 && <Resources />}
-            {activeTab === 2 && <Task canEdit={true} />}
-            {activeTab === 3 && <Summary canEdit={true} />}
+            {activeTab === 2 && <Task canEdit={true} onEdit={() => handleEdit("Task")} />}
+            {activeTab === 3 && <Summary canEdit={true} onEdit={() => handleEdit("Summary")} />}
           </div>
 
           <div className="lg:col-span-1">
