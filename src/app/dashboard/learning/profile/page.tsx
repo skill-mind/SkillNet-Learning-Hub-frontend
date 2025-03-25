@@ -156,7 +156,7 @@ function Page() {
         </div>
       )}
 
-        <div className={`bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] ${activeSection? "hidden" : "flex"} flex-col mt-4 gap-[48px] p-[24px_20px]`}>
+        <div className={`bg-[#161716] border-[1px] rounded-[12px] border-[#1D1D1C] ${activeSection?.section === "about" ? "hidden" : "flex"} flex-col mt-4 gap-[48px] p-[24px_20px]`}>
           {/* experience section */}
           {(activeSection === null ||
             activeSection.section === "experience") && (
@@ -300,7 +300,7 @@ function Page() {
 
           {/* skilles section */}
           {(activeSection === null || activeSection.section === "skills") && (
-            <div className="flex flex-col justify-between w-full items-center my-7 border-b pb-5 border-[#1D1D1C]">
+            <div className="flex flex-col justify-between w-full lg:min-w-[700px] items-center my-7 border pb-5 border-white">
               <div className="flex justify-between w-full items-center">
                 <h1 className="text-[24px] items-center flex space-x-2 font-[600] text-[#FCFCFC]">
                   {activeSection && (
