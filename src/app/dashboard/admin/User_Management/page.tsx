@@ -222,7 +222,10 @@ const AdminDashboard: React.FC = () => {
 
         {/* Tabs */}
         <div className="flex flex-wrap overflow-x-auto mb-4 sm:mb-6 border-b border-gray-800 pr-4 sm:pr-6 md:pr-8">
-          <button className="px-4 py-2 bg-[#161716] text-white hover:bg-[#161716] rounded-t-lg mr-1 mb-1">
+          <button className="px-4 py-2 bg-[#161716] text-white rounded-t-lg mr-1 mb-1">
+            Students (432)
+          </button>
+          <button className="px-4 py-2 hover:bg-[#161716] text-white rounded-t-lg mr-1 mb-1">
             Tutors (78)
           </button>
           <button className="px-4 py-2 text-gray-400 hover:bg-[#161716] rounded-t-lg mb-1">

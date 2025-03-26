@@ -74,8 +74,35 @@ const Icons = {
       ></path>
     </svg>
   ),
+  Students: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.17241 17.5001H8.00488C5.01717 17.5001 3.52332 17.5001 2.59515 16.5544C1.66699 15.6086 1.66699 14.0863 1.66699 11.0418C1.66699 7.99735 1.66699 6.4751 2.59515 5.5293C3.52332 4.5835 5.01717 4.5835 8.00488 4.5835H11.1738C14.1615 4.5835 15.6554 4.5835 16.5836 5.5293C17.2977 6.25699 17.4623 7.32591 17.5003 9.16681"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16.6811 16.6859L18.3337 18.3332M17.5445 14.6053C17.5445 12.9823 16.2287 11.6665 14.6057 11.6665C12.9827 11.6665 11.667 12.9823 11.667 14.6053C11.667 16.2283 12.9827 17.5441 14.6057 17.5441C16.2287 17.5441 17.5445 16.2283 17.5445 14.6053Z"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.333 4.58317L13.2502 4.32562C12.8377 3.04225 12.6315 2.40056 12.1404 2.03353C11.6494 1.6665 10.9971 1.6665 9.69262 1.6665H9.47337C8.16887 1.6665 7.51663 1.6665 7.0256 2.03353C6.53456 2.40056 6.3283 3.04225 5.91579 4.32562L5.83301 4.58317"
+        stroke="white"
+        strokeWidth="1.25"
+      />
+    </svg>
+  ),
 };
-
 
 interface MenuItem {
   href: string;
@@ -174,6 +201,11 @@ const Sidebar: React.FC = () => {
       href: "/dashboard/admin/User_Management",
       label: "User management",
       icon: Icons.UserManagement,
+    },
+    {
+      href: "/dashboard/admin/Students",
+      label: "Students",
+      icon: Icons.Students,
     },
     {
       href: "/dashboard/admin/TutorList",
