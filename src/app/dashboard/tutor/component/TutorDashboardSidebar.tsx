@@ -9,7 +9,7 @@ import notificationIcon from "../../../../../public/messageDashboard.svg";
 import coursesIcon from "../../../../../public/courseDashboard.svg";
 import earningIcon from "../../../../../public/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
-// import ChatBotButton from "../../../../components/ChatbotModal";
+import ChatBotButton from "../../../../components/ChatbotModal";
 
 interface NavItemProps {
   icon: ReactNode;
