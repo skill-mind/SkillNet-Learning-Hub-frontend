@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import NewCourse from "../component/CreateNewCourse";
+import Classes from "../class/page";
 import { PlusIcon, PencilIcon } from "lucide-react";
 
 interface Course {
@@ -16,9 +17,14 @@ interface Course {
 
 const Dashboard: FC = () => {
   const [showNewCourse, setShowNewCourse] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const handleCardClick = () => {
     setShowNewCourse(true);
+  };
+
+  const handleCourseClick = (course: Course) => {
+    setSelectedCourse(course);
   };
 
   const [courses, setCourses] = useState<Course[]>([
@@ -51,13 +57,16 @@ const Dashboard: FC = () => {
         <main className="container py-8 px-4">
           {showNewCourse ? (
             <NewCourse />
+          ) : selectedCourse ? (
+            <Classes />
           ) : (
             <div className="space-y-6">
               <div className="space-y-4">
                 {courses.map((course) => (
                   <div
                     key={course.id}
-                    className="bg-[#101110] rounded-lg p-4 flex h-[218px]"
+                    className="bg-[#101110] rounded-lg p-4 flex h-[218px] cursor-pointer"
+                    onClick={() => handleCourseClick(course)}
                   >
                     <div className="bg-[#161716] relative overflow-hidden rounded-md mr-4 flex-shrink-0">
                       <Image
@@ -94,7 +103,6 @@ const Dashboard: FC = () => {
                           </div>
                           <button className="text-xs border border-gray-600 text-gray-300 px-3 py-1 rounded flex items-center gap-3">
                             <PencilIcon size={16} />
-
                             <span>Edit Course</span>
                           </button>
                         </div>

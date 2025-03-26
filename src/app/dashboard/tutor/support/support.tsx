@@ -223,7 +223,7 @@ const SupportDashboard: React.FC = () => {
               <thead>
                 <tr className="text-left text-sm bg-[#161716]">
                   <th className="py-3 px-4 font-medium">SN</th>
-                  <th className="py-3 px-4 font-medium">Date & Time</th>
+                  <th className="py-3 px-4 font-medium">Date</th>
                   <th className="py-3 px-4 font-medium">Ticket ID</th>
                   <th className="py-3 px-4 font-medium">Issue Category</th>
                   <th className="py-3 px-4 font-medium">Status</th>
