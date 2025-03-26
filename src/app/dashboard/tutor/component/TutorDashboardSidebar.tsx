@@ -9,7 +9,7 @@ import notificationIcon from "../../../../../public/messageDashboard.svg";
 import coursesIcon from "../../../../../public/courseDashboard.svg";
 import earningIcon from "../../../../../public/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
-import ChatBotButton from "../../../../components/ChatbotModal";
+// import ChatBotButton from "../../../../components/ChatbotModal";
 
 interface NavItemProps {
   icon: ReactNode;
@@ -46,7 +46,7 @@ export function Sidebar() {
   const { activeSection, setActiveSection: onSectionChange } =
     useContext(DashBoardContext);
   return (
-    <aside className="w-64 border-r min-h-[90vh] bg-[#161716] border-gray-800 overflow-y-auto">
+    <aside className="w-64 border-r min-h-[90vh] left-0 sticky bg-[#161716] border-gray-800 overflow-y-auto">
       <div className="p-4 h-[100%] overflow-y-auto scrollbar-hide scroll-smooth">
         <div
           onClick={() => onSectionChange("profile")}
@@ -116,7 +116,7 @@ export function Sidebar() {
         </nav>
       </div>
 
-      <div className="mt-auto border-t mx-[15px] border-gray-800">
+      <div className="mt-16 border-t mx-[15px] border-gray-800">
         <NavItem
           icon={<Headset size={20} />}
           label="Support"

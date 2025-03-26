@@ -61,9 +61,6 @@
 //   plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar-hide")],
 // } satisfies Config;
 
-
-
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -116,6 +113,9 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+      },
+      fontFamily: {
+        ubuntu: "'Ubuntu Sans', sans-serif",
       },
       borderRadius: {
         lg: "var(--radius)",
