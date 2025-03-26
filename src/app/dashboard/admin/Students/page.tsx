@@ -62,7 +62,7 @@ const JobSeekerList = () => {
   return (
     <div className="bg-black min-h-screen text-white p-6 relative">
       {/* Header */}
-      <h1 className="text-xl font-medium mb-8">Job Seeker List</h1>
+      <h1 className="text-xl font-medium mb-8">Students List</h1>
 
       {/* Table header */}
       <div className="overflow-x-auto">
