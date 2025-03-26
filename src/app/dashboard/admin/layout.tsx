@@ -30,9 +30,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-black">
+    <div className="flex flex-col min-h-screen bg-[#101110]">
       <Navbar toggleSidebar={toggleSidebar} />
-      <div className="flex flex-1 mt-[64px] md:mt-[80px]"> {/* Adjust margin-top for mobile and desktop */}
+      <div className="flex flex-1 mt-[64px] md:mt-[80px] font-ubuntu">
+        {" "}
+        {/* Adjust margin-top for mobile and desktop */}
         {/* Sidebar */}
         <aside
           className={`
@@ -49,11 +51,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         >
           <Sidebar />
         </aside>
-
         {/* Main Content */}
-        <main className="flex-1 p-4 bg-black w-full">
-          {children}
-        </main>
+        <main className="flex-1 bg-black w-full">{children}</main>
       </div>
     </div>
   );
