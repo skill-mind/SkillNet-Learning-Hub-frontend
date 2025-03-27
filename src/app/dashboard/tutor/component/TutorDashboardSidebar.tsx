@@ -1,7 +1,7 @@
 "use client";
 import { ChevronDown, Headset } from "lucide-react";
 import Image from "next/image";
-import { ReactNode, useContext } from "react";
+import { ReactNode, useContext, useState } from "react";
 import profilePic from "../../../../../public/dashboardProfile.svg";
 import homeIcon from "../../../../../public/homeDashboard.svg";
 import studentIcon from "../../../../../public/studentsDashboard.svg";
@@ -9,7 +9,7 @@ import notificationIcon from "../../../../../public/messageDashboard.svg";
 import coursesIcon from "../../../../../public/courseDashboard.svg";
 import earningIcon from "../../../../../public/walletDashboard.svg";
 import { DashBoardContext } from "@/app/useContext/dashboardContext";
-// import ChatBotButton from "../../../../components/ChatbotModal";
+import ChatBotButton from "../../../../components/ChatbotModal";
 
 interface NavItemProps {
   icon: ReactNode;
@@ -29,10 +29,20 @@ function NavItem({ icon, label, active = false, onClick }: NavItemProps) {
       {icon}
       <span>{label}</span>
     </button>
+    
   );
 }
 
 export function Sidebar() {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
+  const handleOpenChatbot = () => {
+    setIsChatbotOpen(true);
+  };
+
+  const handleCloseChatbot = () => {
+    setIsChatbotOpen(false);
+  };
   const { activeSection, setActiveSection: onSectionChange } =
     useContext(DashBoardContext);
   return (
@@ -111,9 +121,19 @@ export function Sidebar() {
           icon={<Headset size={20} />}
           label="Support"
           active={activeSection === "support"}
-          onClick={() => onSectionChange("support")}
+          onClick={() => {
+            onSectionChange("support");
+            handleOpenChatbot();
+          }}
         />
-        {/* <ChatBotButton isOpen={false}  /> */}
+        <NavItem
+          icon={<Headset size={20} />}
+          label="AI chat bot"
+          onClick={() => {
+            handleOpenChatbot();
+          }}
+        />
+        <ChatBotButton isOpen={isChatbotOpen} onClose={handleCloseChatbot} />
       </div>
     </aside>
   );
