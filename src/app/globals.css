@@ -12,8 +12,6 @@
   }
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,8 +68,6 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -89,4 +85,147 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+}
+
+/* Animation keyframes for 404 page */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: translateX(100%) translateY(-100%) rotate(45deg);
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300%) translateY(300%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit 30s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 40s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.animate-meteor {
+  animation: meteor 5s linear infinite;
+}
+
+/* Special effects */
+.text-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1), 
+    rgba(255,255,255,0.5), 
+    rgba(255,255,255,0.1));
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 6s linear infinite;
+}
+
+.space-dust {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(255,255,255,0.5);
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  z-index: 0;
 }
