@@ -78,6 +78,13 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'twinkle': 'twinkle 4s ease-in-out infinite',
+            'spin-slow': 'spin 15s linear infinite',
+            'orbit': 'orbit 30s linear infinite',
+            'orbit-reverse': 'orbit 40s linear infinite reverse',
+          },
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -124,5 +131,25 @@ export default {
       },
     },
   },
+  keyframes: {
+    float: {
+      '0%, 100%': { transform: 'translateY(0px)' },
+      '50%': { transform: 'translateY(-20px)' },
+    },
+    twinkle: {
+      '0%, 100%': { opacity: '0.2' },
+      '50%': { opacity: '1' },
+    },
+    orbit: {
+      'from': { transform: 'translate(-50%, -50%) rotate(0deg)' },
+      'to': { transform: 'translate(-50%, -50%) rotate(360deg)' },
+    },
+  },
   plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar-hide")],
 } satisfies Config;
+
+
+
+
+
+
